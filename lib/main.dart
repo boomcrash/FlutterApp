@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:turismoapp/description_place.dart';
+import 'package:turismoapp/gradient_back.dart';
+import 'package:turismoapp/review.dart';
+import 'package:turismoapp/review_list.dart';
 
 void main() {
   runApp(const MyApp());
@@ -27,7 +30,14 @@ class MyApp extends StatelessWidget {
       ),
       home:Scaffold(
           appBar: AppBar(leading:Icon(Icons.arrow_back),title:Text("APP DE VIAJES")),
-          body: DescriptionPlace("MIRADOR 2000", 4, "Este lugar es demasiado hermoso, el mismo se encuentra ubicado en Guayaquil \n muy cerca del mlecon 2000 y \n es uno delos lugares mas visitados por la zona"),
+          body: Stack(children: <Widget>[
+            ListView(children: <Widget>[
+              DescriptionPlace("MIRADOR 2000", 4, "Este lugar es demasiado hermoso, el mismo se encuentra ubicado en Guayaquil \n muy cerca del mlecon 2000 y \n es uno delos lugares mas visitados por la zona"),
+              ReviewList(),
+            ],),
+            GradientBack(),
+
+          ],)
 
         //bottomNavigationBar: ,
         //floatingActionButton: ,
