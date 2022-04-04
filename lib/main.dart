@@ -1,10 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:turismoapp/button.dart';
+import 'package:turismoapp/card_image.dart';
+import 'package:turismoapp/card_image_list.dart';
 import 'package:turismoapp/description_place.dart';
 import 'package:turismoapp/gradient_back.dart';
+import 'package:turismoapp/header_appbar.dart';
+import 'package:turismoapp/principal_trip.dart';
 import 'package:turismoapp/review.dart';
 import 'package:turismoapp/review_list.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+  SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
+    statusBarColor: Colors.transparent, // transparent status bar
+  ));
   runApp(const MyApp());
 }
 
@@ -14,6 +24,7 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
@@ -28,22 +39,12 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home:Scaffold(
-          appBar: AppBar(leading:Icon(Icons.arrow_back),title:Text("APP DE VIAJES")),
-          body: Stack(children: <Widget>[
-            ListView(children: <Widget>[
-              DescriptionPlace("MIRADOR 2000", 4, "Este lugar es demasiado hermoso, el mismo se encuentra ubicado en Guayaquil \n muy cerca del mlecon 2000 y \n es uno delos lugares mas visitados por la zona"),
-              ReviewList(),
-            ],),
-            GradientBack(),
-
-          ],)
-
+      home:PrincipalTrip()
         //bottomNavigationBar: ,
         //floatingActionButton: ,
         //floatingActionButtonLocation: ,
         //floatingActionButtonAnimator: ,
-      )
+
       //const MyHomePage(title: 'Flutter Demo Home Page'),
     );
   }
